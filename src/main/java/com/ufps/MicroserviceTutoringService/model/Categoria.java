@@ -1,4 +1,4 @@
-package com.ufps.MicroserviceTutoringService.Model;
+package com.ufps.MicroserviceTutoringService.model;
 
 
 
