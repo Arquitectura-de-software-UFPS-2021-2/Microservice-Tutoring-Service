@@ -1,4 +1,4 @@
-package com.ufps.microservice.tutoring.model;
+package com.ufps.microservice.tutoring.turoting.infraestructura.persistencia.entidad;
 
 
 import lombok.AllArgsConstructor;
