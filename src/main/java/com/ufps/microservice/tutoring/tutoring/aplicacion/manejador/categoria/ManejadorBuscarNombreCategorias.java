@@ -15,7 +15,7 @@ public class ManejadorBuscarNombreCategorias {
     public Categoria find(String nombre) throws NotFoundException {
         Optional<Categoria> categoriaBusqueda = categoriaRepositorioInterface.findName(nombre);
 
-        if (!categoriaBusqueda.isEmpty()){
+        if (categoriaBusqueda.isEmpty()){
             throw new NotFoundException("No se encontro la categoria");
         }
         return categoriaBusqueda.get();
