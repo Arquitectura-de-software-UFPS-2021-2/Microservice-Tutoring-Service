@@ -6,9 +6,11 @@ import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.crud
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Subject;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.TemaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public class TemaRepositorio implements TemaRepositorioInterface {
 
     @Autowired
