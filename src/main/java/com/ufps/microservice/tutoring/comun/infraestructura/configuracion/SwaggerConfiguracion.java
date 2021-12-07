@@ -14,7 +14,7 @@ public class SwaggerConfiguracion {
     private static final String RUTA_PRINCIPAL = "com.ufps.microservice.tutoring.tutoring.infraestructura.endpoint";
 
     @Bean
-    public Docket api(){
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(RUTA_PRINCIPAL))

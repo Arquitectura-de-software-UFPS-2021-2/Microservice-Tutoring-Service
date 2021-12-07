@@ -5,10 +5,14 @@ import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.enti
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface CategoriaMapper {
 
     Categoria toCategoriaDto(Category category);
+
+    List<Categoria> toCategoriaDtos(List<Category> categories);
 
     @InheritInverseConfiguration
     Category toCategoryEntity(Categoria categoria);

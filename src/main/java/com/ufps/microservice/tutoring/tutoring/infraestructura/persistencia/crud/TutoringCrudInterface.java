@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface TutoringCrudInterface extends JpaRepository<Tutoring, Integer> {
-    Optional<Tutoring> findById (Integer id);
+    Optional<Tutoring> findById(Integer id);
 
     Optional<Tutoring> findByReason(String reason);
 }

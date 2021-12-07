@@ -12,11 +12,11 @@ public class Categoria {
     private Integer id;
     private String name;
 
-    public Categoria(Integer id, String name){
+    public Categoria(Integer id, String name) {
         actualizarCategoria(id, name);
     }
 
-    public void actualizarCategoria(Integer id, String name){
+    public void actualizarCategoria(Integer id, String name) {
         this.id = id;
         this.name = name;
     }

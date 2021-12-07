@@ -13,9 +13,9 @@ public class ManejadorEliminarCategorias {
 
     private final CategoriaRepositorioInterface categoriaRepositorioInterface;
 
-    public ResponseEntity<Categoria> eliminar(Integer id, String nombre){
+    public ResponseEntity<Categoria> eliminar(Integer id, String nombre) {
         Optional<Categoria> categoriaBusqueda = categoriaRepositorioInterface.findId(id);
-        if (!categoriaBusqueda.isEmpty()){
+        if (!categoriaBusqueda.isEmpty()) {
             categoriaRepositorioInterface.delete(categoriaBusqueda.get());
         }
         return new ResponseEntity<>(HttpStatus.OK);

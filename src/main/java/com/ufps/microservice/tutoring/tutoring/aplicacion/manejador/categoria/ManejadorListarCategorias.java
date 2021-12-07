@@ -5,21 +5,19 @@ import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepo
 import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Optional;
+import java.util.List;
 
 @RequiredArgsConstructor
-public class ManejadorEditarCategorias {
+public class ManejadorListarCategorias {
 
     private final CategoriaRepositorioInterface categoriaRepositorioInterface;
 
-    public Categoria ejecutar(Categoria categoria) throws NotFoundException {
-        Optional<Categoria> categoriaBusqueda = categoriaRepositorioInterface.findId(categoria.getId());
-        if (categoriaBusqueda.isEmpty()) {
+    public List<Categoria> list() throws NotFoundException {
+        List<Categoria> categoriaBusqueda = categoriaRepositorioInterface.findAll();
+        if (categoriaBusqueda.isEmpty()){
             throw new NotFoundException("No se encontro la categoria");
         }
-        categoriaBusqueda.get().actualizarCategoria(categoria.getId(), categoria.getName());
-        categoriaRepositorioInterface.save(categoriaBusqueda.get());
-        return categoriaBusqueda.get();
+        return categoriaBusqueda;
     }
 
 }
