@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Map;
 
-@FeignClient(name="account", url="http://18.235.152.56")
+@FeignClient(name = "account", url = "http://18.235.152.56")
 public interface UsuarioClient {
 
     @PostMapping("/student/show")

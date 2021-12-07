@@ -13,9 +13,9 @@ public class ManejadorEliminarTemas {
 
     private final TemaRepositorioInterface temaRepositorioInterface;
 
-    public ResponseEntity<Tema> eliminar(Integer id, String nombre){
+    public ResponseEntity<Tema> eliminar(Integer id, String nombre) {
         Optional<Tema> temaBusqueda = temaRepositorioInterface.findId(id);
-        if (!temaBusqueda.isEmpty()){
+        if (!temaBusqueda.isEmpty()) {
             temaRepositorioInterface.delete(temaBusqueda.get());
         }
         return new ResponseEntity<>(HttpStatus.OK);

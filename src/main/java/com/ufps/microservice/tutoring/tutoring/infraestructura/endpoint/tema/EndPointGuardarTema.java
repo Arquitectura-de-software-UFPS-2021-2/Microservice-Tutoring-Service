@@ -26,7 +26,7 @@ public class EndPointGuardarTema {
     @PostMapping("/save")
     @ApiOperation("guarda un tema")
     @ApiResponse(code = 201, message = "CREATED")
-    public ResponseEntity<Tema> save (@RequestBody Tema tema) throws NotFoundException {
+    public ResponseEntity<Tema> save(@RequestBody Tema tema) throws NotFoundException {
         Tema temaGuardar = manejadorGuardarTemas.guardar(tema);
         return new ResponseEntity<>(temaGuardar, HttpStatus.OK);
     }
