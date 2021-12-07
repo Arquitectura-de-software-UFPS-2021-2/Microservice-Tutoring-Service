@@ -10,6 +10,8 @@ import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.Manejad
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorGuardarTemas;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
+import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.UsuarioRepositorioInterface;
+import com.ufps.microservice.tutoring.tutoring.dominio.useCase.UsuarioUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -58,6 +60,9 @@ public class BeanConfiguracion {
         return new ManejadorGuardarTemas(temaRepositorioInterface);
     }
 
-
+    @Bean
+    public UsuarioUseCase usuarioUseCase(UsuarioRepositorioInterface usuarioRepositorioInterface){
+        return new UsuarioUseCase(usuarioRepositorioInterface);
+    }
 
 }
