@@ -6,15 +6,7 @@ import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.enti
 import java.util.Optional;
 
 public interface UsuarioRepositorioInterface {
+    Usuario findByCode(String code);
 
-    Optional<Usuario> findRole(String role);
-
-    Optional<Usuario> findId(Integer id);
-
-    void save(Usuario usuario);
-
-    void delete(Usuario usuario);
-
-    User renEntity(String name);
-
+    void saveRole(Usuario usuario);
 }
