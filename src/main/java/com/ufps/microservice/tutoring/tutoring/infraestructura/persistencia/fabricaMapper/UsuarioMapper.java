@@ -23,6 +23,8 @@ public interface UsuarioMapper {
     Usuario toUsuarioDto(User user);
 
     @InheritInverseConfiguration
+    @Mapping(target = "subjectList", ignore = true)
+    @Mapping(target = "tutoringList", ignore = true)
     User toUserEntity(Usuario usuario);
 
 }

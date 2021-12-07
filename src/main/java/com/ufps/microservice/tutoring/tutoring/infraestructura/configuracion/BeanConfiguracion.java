@@ -12,6 +12,8 @@ import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepo
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.UsuarioRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.useCase.UsuarioUseCase;
+import com.ufps.microservice.tutoring.tutoring.infraestructura.clientefeign.UsuarioClient;
+import feign.Feign;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -64,5 +66,4 @@ public class BeanConfiguracion {
     public UsuarioUseCase usuarioUseCase(UsuarioRepositorioInterface usuarioRepositorioInterface) {
         return new UsuarioUseCase(usuarioRepositorioInterface);
     }
-
 }
