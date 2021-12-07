@@ -8,6 +8,7 @@ import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabr
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -29,6 +30,12 @@ public class CategoriaRepositorio implements CategoriaRepositorioInterface {
     public Optional<Categoria> findId(Integer id) {
         Optional<Category> category = categoriaCrudInterface.findById(id);
         return category.map(category1 -> categoriaMapper.toCategoriaDto(category1));
+    }
+
+    @Override
+    public List<Categoria> findAll() {
+        List<Category> categories = categoriaCrudInterface.findAll();
+        return categoriaMapper.toCategoriaDtos(categories);
     }
 
     @Override
