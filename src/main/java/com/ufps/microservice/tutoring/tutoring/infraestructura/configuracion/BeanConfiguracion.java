@@ -4,7 +4,12 @@ import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.Ma
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.ManejadorEditarCategorias;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.ManejadorEliminarCategorias;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.ManejadorGuardarCategorias;
+import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorBuscarNombreTemas;
+import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorEliminarTemas;
+import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorEditarTemas;
+import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorGuardarTemas;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepositorioInterface;
+import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -30,6 +35,27 @@ public class BeanConfiguracion {
     @Bean
     public ManejadorGuardarCategorias manejadorGuardarCategorias(CategoriaRepositorioInterface categoriaRepositorioInterface){
         return new ManejadorGuardarCategorias(categoriaRepositorioInterface);
+    }
+
+    //Beans de Temas
+    @Bean
+    public ManejadorBuscarNombreTemas manejadorBuscarNombreTemas(TemaRepositorioInterface temaRepositorioInterface){
+        return new ManejadorBuscarNombreTemas(temaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorEditarTemas manejadorEditarTemas(TemaRepositorioInterface temaRepositorioInterface){
+        return new ManejadorEditarTemas(temaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorEliminarTemas manejadorEliminarTemas(TemaRepositorioInterface temaRepositorioInterface){
+        return new ManejadorEliminarTemas(temaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorGuardarTemas manejadorGuardarTemas(TemaRepositorioInterface temaRepositorioInterface){
+        return new ManejadorGuardarTemas(temaRepositorioInterface);
     }
 
 
