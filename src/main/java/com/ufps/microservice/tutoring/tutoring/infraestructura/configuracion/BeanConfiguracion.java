@@ -9,6 +9,7 @@ import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.Manejad
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorEditarTemas;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorEliminarTemas;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorGuardarTemas;
+import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorListarTemas;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.UsuarioRepositorioInterface;
@@ -48,6 +49,11 @@ public class BeanConfiguracion {
     }
 
     //Beans de Temas
+    @Bean
+    public ManejadorListarTemas manejadorListarTemas(TemaRepositorioInterface temaRepositorioInterface){
+        return new ManejadorListarTemas(temaRepositorioInterface);
+    }
+
     @Bean
     public ManejadorBuscarNombreTemas manejadorBuscarNombreTemas(TemaRepositorioInterface temaRepositorioInterface) {
         return new ManejadorBuscarNombreTemas(temaRepositorioInterface);
