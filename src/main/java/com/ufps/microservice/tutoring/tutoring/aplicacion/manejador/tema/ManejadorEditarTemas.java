@@ -14,7 +14,7 @@ public class ManejadorEditarTemas {
 
     public Tema ejecutar(Tema tema) throws NotFoundException {
         Optional<Tema> temaBusqueda = temaRepositorioInterface.findId(tema.getId());
-        if (temaBusqueda.isEmpty()){
+        if (temaBusqueda.isEmpty()) {
             throw new NotFoundException("No se encontro el tema");
         }
         temaBusqueda.get().actualizarTema(tema.getId(), tema.getName());

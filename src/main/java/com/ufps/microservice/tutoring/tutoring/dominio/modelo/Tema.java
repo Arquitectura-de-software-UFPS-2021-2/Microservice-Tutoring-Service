@@ -12,11 +12,11 @@ public class Tema {
     private Integer id;
     private String name;
 
-    public Tema(Integer id, String name){
+    public Tema(Integer id, String name) {
         actualizarTema(id, name);
     }
 
-    public void actualizarTema(Integer id, String name){
+    public void actualizarTema(Integer id, String name) {
         this.id = id;
         this.name = name;
     }

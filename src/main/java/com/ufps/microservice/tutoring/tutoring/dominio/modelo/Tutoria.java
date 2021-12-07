@@ -14,7 +14,7 @@ public class Tutoria {
     private Usuario userTutor;
     private Categoria category;
 
-    public Tutoria(){
+    public Tutoria() {
         actualizarReason(reason);
         actualizarDescription(description);
         actualizarState(state);
@@ -25,19 +25,19 @@ public class Tutoria {
         actualizarCategoria(category);
     }
 
-    public void actualizarReason(String reason){
+    public void actualizarReason(String reason) {
         this.reason = reason;
     }
 
-    public void actualizarDescription(String description){
+    public void actualizarDescription(String description) {
         this.description = description;
     }
 
-    public void actualizarState(boolean state){
+    public void actualizarState(boolean state) {
         this.state = state;
     }
 
-    public void actualizarDateEnd(LocalDateTime dateEnd){
+    public void actualizarDateEnd(LocalDateTime dateEnd) {
         this.dateEnd = dateEnd;
     }
 
@@ -45,15 +45,15 @@ public class Tutoria {
         this.dateStrat = dateStart;
     }
 
-    public void actualizarUsuarioCreator(Usuario usuarioCreator){
+    public void actualizarUsuarioCreator(Usuario usuarioCreator) {
         this.userCreator = usuarioCreator;
     }
 
-    public void actualizarUsuarioTutor(Usuario usuarioTutor){
+    public void actualizarUsuarioTutor(Usuario usuarioTutor) {
         this.userTutor = usuarioTutor;
     }
 
-    public void actualizarCategoria(Categoria categoria){
+    public void actualizarCategoria(Categoria categoria) {
         this.category = categoria;
     }
 

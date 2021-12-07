@@ -14,7 +14,7 @@ public class ManejadorEditarCategorias {
 
     public Categoria ejecutar(Categoria categoria) throws NotFoundException {
         Optional<Categoria> categoriaBusqueda = categoriaRepositorioInterface.findId(categoria.getId());
-        if (categoriaBusqueda.isEmpty()){
+        if (categoriaBusqueda.isEmpty()) {
             throw new NotFoundException("No se encontro la categoria");
         }
         categoriaBusqueda.get().actualizarCategoria(categoria.getId(), categoria.getName());

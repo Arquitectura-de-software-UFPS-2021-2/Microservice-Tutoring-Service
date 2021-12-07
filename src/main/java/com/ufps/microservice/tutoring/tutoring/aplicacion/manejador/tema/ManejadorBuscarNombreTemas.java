@@ -6,6 +6,7 @@ import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
+
 @RequiredArgsConstructor
 public class ManejadorBuscarNombreTemas {
 
@@ -14,7 +15,7 @@ public class ManejadorBuscarNombreTemas {
     public Tema find(String nombre) throws NotFoundException {
         Optional<Tema> temaBusqueda = temaRepositorioInterface.findName(nombre);
 
-        if (temaBusqueda.isEmpty()){
+        if (temaBusqueda.isEmpty()) {
             throw new NotFoundException("No se encontro el tema");
         }
         return temaBusqueda.get();
