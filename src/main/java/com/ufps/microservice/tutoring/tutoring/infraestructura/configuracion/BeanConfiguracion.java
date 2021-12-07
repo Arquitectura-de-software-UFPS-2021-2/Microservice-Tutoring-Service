@@ -4,6 +4,7 @@ import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.Ma
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.ManejadorEditarCategorias;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.ManejadorEliminarCategorias;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.ManejadorGuardarCategorias;
+import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.categoria.ManejadorListarCategorias;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorBuscarNombreTemas;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorEditarTemas;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorEliminarTemas;
@@ -39,6 +40,11 @@ public class BeanConfiguracion {
     @Bean
     public ManejadorGuardarCategorias manejadorGuardarCategorias(CategoriaRepositorioInterface categoriaRepositorioInterface) {
         return new ManejadorGuardarCategorias(categoriaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorListarCategorias manejadorListarCategorias(CategoriaRepositorioInterface categoriaRepositorioInterface){
+        return new ManejadorListarCategorias(categoriaRepositorioInterface);
     }
 
     //Beans de Temas
