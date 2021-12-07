@@ -8,6 +8,7 @@ import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabr
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -29,6 +30,12 @@ public class TemaRepositorio implements TemaRepositorioInterface {
     public Optional<Tema> findId(Integer id) {
         Optional<Subject> subject = subjectCrudInterface.findById(id);
         return subject.map(subject1 -> temaMapper.toSubjectDto(subject1));
+    }
+
+    @Override
+    public List<Tema> findAll() {
+        List<Subject> subject = subjectCrudInterface.findAll();
+        return temaMapper.toListSubjectDto(subject);
     }
 
     @Override

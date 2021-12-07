@@ -5,10 +5,14 @@ import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.enti
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface TemaMapper {
 
     Tema toSubjectDto(Subject subject);
+
+    List<Tema> toListSubjectDto(List<Subject> subject);
 
     @InheritInverseConfiguration
     Subject toSubjectEntity(Tema tema);
