@@ -10,8 +10,10 @@ import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.Manejad
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorEliminarTemas;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorGuardarTemas;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorListarTemas;
+import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria.*;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
+import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.UsuarioRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.useCase.UsuarioUseCase;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.clientefeign.UsuarioClient;
@@ -78,4 +80,32 @@ public class BeanConfiguracion {
     public UsuarioUseCase usuarioUseCase(UsuarioRepositorioInterface usuarioRepositorioInterface) {
         return new UsuarioUseCase(usuarioRepositorioInterface);
     }
+
+    //Beans de Tutorias
+
+    @Bean
+    public ManejadorBuscarNombreTutorias manejadorBuscarNombreTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface) {
+        return new ManejadorBuscarNombreTutorias(tutoriaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorEditarTutorias manejadorEditarCategorias(TutoriaRepositorioInterface tutoriaRepositorioInterface) {
+        return new ManejadorEditarTutorias(tutoriaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorEliminarTutorias manejadorEliminarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface) {
+        return new ManejadorEliminarTutorias(tutoriaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorGuardarTutorias manejadorGuardarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface) {
+        return new ManejadorGuardarTutorias(tutoriaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorListarTutorias manejadorListarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface){
+        return new ManejadorListarTutorias(tutoriaRepositorioInterface);
+    }
+
 }

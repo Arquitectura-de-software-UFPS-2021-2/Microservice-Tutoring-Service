@@ -1,7 +1,10 @@
 package com.ufps.microservice.tutoring.tutoring.dominio.modelo;
 
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 
+@Getter
 public class Tutoria {
 
     private Integer id;

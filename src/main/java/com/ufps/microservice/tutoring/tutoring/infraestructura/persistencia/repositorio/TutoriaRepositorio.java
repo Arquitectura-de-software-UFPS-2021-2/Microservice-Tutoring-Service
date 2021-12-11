@@ -3,10 +3,12 @@ package com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.rep
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.crud.TutoringCrudInterface;
+import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Category;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Tutoring;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.TutoriaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Optional;
 
 public class TutoriaRepositorio implements TutoriaRepositorioInterface {
@@ -21,6 +23,12 @@ public class TutoriaRepositorio implements TutoriaRepositorioInterface {
     public Optional<Tutoria> findReason(String reason) {
         Optional<Tutoring> tutoring = tutoringCrudInterface.findByReason(reason);
         return tutoring.map(tutoring1 -> tutoriaMapper.toTutoriaDto(tutoring1));
+    }
+
+    @Override
+    public List<Tutoria> findAll() {
+        List<Tutoring> tutorings = tutoringCrudInterface.findAll();
+        return tutoriaMapper.toTutoriaDtos(tutorings);
     }
 
     @Override
