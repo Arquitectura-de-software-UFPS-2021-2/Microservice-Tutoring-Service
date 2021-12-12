@@ -26,22 +26,37 @@ public class UsuarioRepositorio implements UsuarioRepositorioInterface {
     private UsuarioClient usuarioClient;
 
     @Override
-    public Usuario findByCode(String code) {
-        ResponseEntity<Usuario> usuarioResponseEntity = usuarioClient.findByCodigo(Map.of("codigo", code));
+    public Usuario findByCode(String code, String token) {
+        ResponseEntity<Usuario> usuarioResponseEntity = usuarioClient.findByCodigo(Map.of("codigo", code, "token", token));
         if (!usuarioResponseEntity.hasBody()) {
             throw new RuntimeException("No se encontro el usuario");
         }
         Usuario usuario = usuarioResponseEntity.getBody();
 
-        Optional<User> userOptional = userCrudInterface.findById(Integer.parseInt(code));
-        userOptional.ifPresent(user -> usuario.setRole(user.getRole()));
+        User user = findUser(usuario.getCode().toString());
+
+        usuario.setRole(user.getRole());
 
         return usuario;
     }
 
     @Override
     public void saveRole(Usuario usuario) {
-        User user = usuarioMapper.toUserEntity(usuario);
+        User user = findUser(usuario.getCode().toString());
+        user.setRole(usuario.getRole());
         userCrudInterface.save(user);
+    }
+
+    private User findUser(String code) {
+        Optional<User> userOptional = userCrudInterface.findById(Integer.parseInt(code));
+        User user = User.builder().build();
+        if (userOptional.isEmpty()) {
+            user.setId(Integer.parseInt(code));
+            user.setRole("ROLE_USER");
+            userCrudInterface.save(user);
+        } else {
+            user = userOptional.get();
+        }
+        return user;
     }
 }

@@ -9,8 +9,8 @@ public class UsuarioUseCase {
 
     private final UsuarioRepositorioInterface usuarioRepositorio;
 
-    public Usuario findByCode(String code) {
-        return usuarioRepositorio.findByCode(code);
+    public Usuario findByCode(String code, String token) {
+        return usuarioRepositorio.findByCode(code, token);
     }
 
     public void saveRole(Usuario usuario) {
