@@ -2,6 +2,7 @@ package com.ufps.microservice.tutoring.tutoring.infraestructura.endpoint.tutoria
 
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria.ManejadorListarTutorias;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaSalida;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -33,8 +34,8 @@ public class EndPointListarTutoria {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 204, message = "no se encontraron tutorias")
     })
-    public ResponseEntity<List<Tutoria>> getAll() throws NotFoundException {
-        List<Tutoria> tutorias = manejadorListarTutorias.list();
+    public ResponseEntity<List<TutoriaSalida>> getAll() throws NotFoundException {
+        List<TutoriaSalida> tutorias = manejadorListarTutorias.list();
         if (tutorias.isEmpty()){
             return ResponseEntity.noContent().build();
         }

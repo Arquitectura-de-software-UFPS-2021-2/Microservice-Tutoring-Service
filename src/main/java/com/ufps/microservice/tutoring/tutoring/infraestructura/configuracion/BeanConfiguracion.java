@@ -17,6 +17,9 @@ import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaReposi
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.UsuarioRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.useCase.UsuarioUseCase;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.clientefeign.UsuarioClient;
+import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.CategoriaMapper;
+import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.TemaMapper;
+import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.UsuarioMapper;
 import feign.Feign;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -99,13 +102,29 @@ public class BeanConfiguracion {
     }
 
     @Bean
-    public ManejadorGuardarTutorias manejadorGuardarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface) {
-        return new ManejadorGuardarTutorias(tutoriaRepositorioInterface);
+    public ManejadorGuardarTutorias manejadorGuardarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                             CategoriaRepositorioInterface categoriaRepositorioInterface,
+                                                             TemaRepositorioInterface temaRepositorioInterface,
+                                                             UsuarioRepositorioInterface usuarioRepositorioInterface,
+                                                             UsuarioMapper usuarioMapper,
+                                                             CategoriaMapper categoriaMapper,
+                                                             TemaMapper temaMapper) {
+        return new ManejadorGuardarTutorias(tutoriaRepositorioInterface,
+                                            usuarioRepositorioInterface,
+                                            categoriaRepositorioInterface,
+                                            temaRepositorioInterface,
+                                            usuarioMapper,
+                                            categoriaMapper,
+                                            temaMapper);
     }
 
     @Bean
-    public ManejadorListarTutorias manejadorListarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface){
-        return new ManejadorListarTutorias(tutoriaRepositorioInterface);
+    public ManejadorListarTutorias manejadorListarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                           CategoriaMapper categoriaMapper,
+                                                           TemaMapper temaMapper){
+        return new ManejadorListarTutorias(tutoriaRepositorioInterface,
+                                            categoriaMapper,
+                                            temaMapper);
     }
 
 }

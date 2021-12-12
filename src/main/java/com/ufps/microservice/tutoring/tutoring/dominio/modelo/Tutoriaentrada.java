@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
-public class Tutoria {
+public class Tutoriaentrada {
 
     private Integer id;
     private String reason;
@@ -14,12 +14,12 @@ public class Tutoria {
     private boolean state;
     private LocalDateTime dateEnd;
     private LocalDateTime dateStrat;
-    private Usuario userCreator;
-    private Usuario userTutor;
-    private Categoria category;
-    private List<Tema> subjectList;
+    private int userCreator;
+    private int userTutor;
+    private int idcategory;
+    private List<Integer> lissubjets;
 
-    public Tutoria() {
+    public Tutoriaentrada() {
         actualizarReason(reason);
         actualizarDescription(description);
         actualizarState(state);
@@ -27,8 +27,8 @@ public class Tutoria {
         actualizarDateStart(dateStrat);
         actualizarUsuarioCreator(userCreator);
         actualizarUsuarioTutor(userTutor);
-        actualizarCategoria(category);
-        actualizarListSubject(subjectList);
+        actualizarCategoria(idcategory);
+        actualizarListsubject(lissubjets);
     }
 
     public void actualizarReason(String reason) {
@@ -51,19 +51,21 @@ public class Tutoria {
         this.dateStrat = dateStart;
     }
 
-    public void actualizarUsuarioCreator(Usuario usuarioCreator) {
+    public void actualizarUsuarioCreator(int usuarioCreator) {
         this.userCreator = usuarioCreator;
     }
 
-    public void actualizarUsuarioTutor(Usuario usuarioTutor) {
+    public void actualizarUsuarioTutor(int usuarioTutor) {
         this.userTutor = usuarioTutor;
     }
 
-    public void actualizarCategoria(Categoria categoria) {
-        this.category = categoria;
+    public void actualizarCategoria(int idcategory) {
+        this.idcategory = idcategory;
     }
 
-    public void actualizarListSubject(List<Tema> subjectList) {
-        this.subjectList = subjectList;
+    public void actualizarListsubject(List<Integer> lissubjets) {
+        this.lissubjets = lissubjets;
     }
+
+
 }

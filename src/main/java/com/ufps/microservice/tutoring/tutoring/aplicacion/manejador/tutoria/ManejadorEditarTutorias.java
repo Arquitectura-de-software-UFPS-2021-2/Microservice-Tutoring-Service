@@ -17,15 +17,7 @@ public class ManejadorEditarTutorias {
         if (tutoriaBusqueda.isEmpty()) {
             throw new NotFoundException("No se encontro la tutoria");
         }
-        tutoriaBusqueda.get().actualizarReason(tutoria.getReason());
-        tutoriaBusqueda.get().actualizarDescription(tutoria.getDescription());
-        tutoriaBusqueda.get().actualizarDateEnd(tutoria.getDateEnd());
-        tutoriaBusqueda.get().actualizarDateStart(tutoria.getDateStrat());
-        tutoriaBusqueda.get().actualizarUsuarioCreator(tutoria.getUserCreator());
-        tutoriaBusqueda.get().actualizarUsuarioTutor(tutoria.getUserTutor());
-        tutoriaBusqueda.get().actualizarCategoria(tutoria.getCategory());
 
-        tutoriaRepositorioInterface.save(tutoriaBusqueda.get());
         return tutoriaBusqueda.get();
     }
 

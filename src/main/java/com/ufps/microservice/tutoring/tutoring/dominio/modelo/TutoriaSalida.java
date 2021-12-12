@@ -1,12 +1,16 @@
 package com.ufps.microservice.tutoring.tutoring.dominio.modelo;
 
+import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Category;
+import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Subject;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
-public class Tutoria {
+@Setter
+public class TutoriaSalida {
 
     private Integer id;
     private String reason;
@@ -14,12 +18,12 @@ public class Tutoria {
     private boolean state;
     private LocalDateTime dateEnd;
     private LocalDateTime dateStrat;
-    private Usuario userCreator;
-    private Usuario userTutor;
-    private Categoria category;
-    private List<Tema> subjectList;
+    private int userCreator;
+    private int userTutor;
+    private String category;
+    private List<String> lissubjets;
 
-    public Tutoria() {
+    public TutoriaSalida() {
         actualizarReason(reason);
         actualizarDescription(description);
         actualizarState(state);
@@ -28,7 +32,7 @@ public class Tutoria {
         actualizarUsuarioCreator(userCreator);
         actualizarUsuarioTutor(userTutor);
         actualizarCategoria(category);
-        actualizarListSubject(subjectList);
+        actualizarListsubject(lissubjets);
     }
 
     public void actualizarReason(String reason) {
@@ -51,19 +55,19 @@ public class Tutoria {
         this.dateStrat = dateStart;
     }
 
-    public void actualizarUsuarioCreator(Usuario usuarioCreator) {
+    public void actualizarUsuarioCreator(int usuarioCreator) {
         this.userCreator = usuarioCreator;
     }
 
-    public void actualizarUsuarioTutor(Usuario usuarioTutor) {
+    public void actualizarUsuarioTutor(int usuarioTutor) {
         this.userTutor = usuarioTutor;
     }
 
-    public void actualizarCategoria(Categoria categoria) {
-        this.category = categoria;
+    public void actualizarCategoria(String category) {
+        this.category = category;
     }
 
-    public void actualizarListSubject(List<Tema> subjectList) {
-        this.subjectList = subjectList;
+    public void actualizarListsubject(List<String> lissubjets) {
+        this.lissubjets = lissubjets;
     }
 }

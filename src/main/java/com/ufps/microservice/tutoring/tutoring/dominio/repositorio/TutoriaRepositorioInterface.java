@@ -11,11 +11,11 @@ public interface TutoriaRepositorioInterface {
 
     Optional<Tutoria> findReason(String reason);
 
-    List<Tutoria> findAll();
+    List<Tutoring> findAll();
 
     Optional<Tutoria> findId(Integer id);
 
-    void save(Tutoria tutoria);
+    void save(Tutoring tutoria);
 
     void delete(Tutoria tutoria);
 
