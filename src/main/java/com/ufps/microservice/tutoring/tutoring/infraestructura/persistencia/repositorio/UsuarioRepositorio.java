@@ -27,11 +27,11 @@ public class UsuarioRepositorio implements UsuarioRepositorioInterface {
 
     @Override
     public Usuario findByCode(String code, String token) {
-        ResponseEntity<Usuario> usuarioResponseEntity = usuarioClient.findByCodigo(Map.of("codigo", code, "token", token));
+        ResponseEntity<Map<String, Object>> usuarioResponseEntity = usuarioClient.findByCodigo(Map.of("code", code, "api_token", token));
         if (!usuarioResponseEntity.hasBody()) {
             throw new RuntimeException("No se encontro el usuario");
         }
-        Usuario usuario = usuarioResponseEntity.getBody();
+        Usuario usuario = new Usuario(); // fix
 
         User user = findUser(usuario.getCode().toString());
 

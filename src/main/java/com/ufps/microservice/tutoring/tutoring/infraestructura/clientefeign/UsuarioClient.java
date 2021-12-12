@@ -14,5 +14,5 @@ import java.util.Map;
 public interface UsuarioClient {
 
     @PostMapping("/student/show")
-    ResponseEntity<Usuario> findByCodigo(@RequestBody Map<String, String> codigo);
+    ResponseEntity<Map<String, Object>> findByCodigo(@RequestBody Map<String, String> body);
 }

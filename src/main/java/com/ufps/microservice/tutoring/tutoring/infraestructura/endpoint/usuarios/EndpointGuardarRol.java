@@ -22,7 +22,7 @@ public class EndpointGuardarRol {
     @Autowired
     private ManejadorGuardarRol manejadorGuardarRol;
 
-    @RequestMapping(REST_USUARIO_CAMBIAR_ROL)
+    @PostMapping(REST_USUARIO_CAMBIAR_ROL)
     public ResponseEntity<Usuario> guardarRol(@PathVariable(value = "id") String id, @PathVariable(value = "rol") String rol, @RequestHeader(value = "Authorization") String token) {
         manejadorGuardarRol.ejecutar(id, rol, token);
         return new ResponseEntity<Usuario>(HttpStatus.OK);
