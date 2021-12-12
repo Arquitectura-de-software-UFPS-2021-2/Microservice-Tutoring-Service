@@ -2,6 +2,7 @@ package com.ufps.microservice.tutoring.tutoring.infraestructura.endpoint.tutoria
 
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria.ManejadorBuscarNombreTutorias;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaSalida;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import javassist.NotFoundException;
@@ -28,10 +29,10 @@ public class EndPointBuscarTutoria {
     @GetMapping("/busquedaNombre/{nombre}")
     @ApiOperation("obtiene una tutoria por su nombre")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Tutoria> getIdentification(
+    public ResponseEntity<TutoriaSalida> getIdentification(
             @PathVariable("nombre")
                     String nombre) throws NotFoundException {
-        Tutoria tutoria = manejadorBuscarNombreTutorias.find(nombre);
+        TutoriaSalida tutoria = manejadorBuscarNombreTutorias.find(nombre);
         return new ResponseEntity<>(tutoria, HttpStatus.OK);
     }
 

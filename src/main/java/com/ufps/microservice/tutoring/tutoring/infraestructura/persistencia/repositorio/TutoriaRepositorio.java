@@ -22,9 +22,9 @@ public class TutoriaRepositorio implements TutoriaRepositorioInterface {
     private TutoringCrudInterface tutoringCrudInterface;
 
     @Override
-    public Optional<Tutoria> findReason(String reason) {
+    public Optional<Tutoring> findReason(String reason) {
         Optional<Tutoring> tutoring = tutoringCrudInterface.findByReason(reason);
-        return tutoring.map(tutoring1 -> tutoriaMapper.toTutoriaDto(tutoring1));
+        return tutoring;
     }
 
     @Override

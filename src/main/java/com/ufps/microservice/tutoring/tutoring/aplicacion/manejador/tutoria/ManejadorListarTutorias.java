@@ -36,7 +36,7 @@ public class ManejadorListarTutorias {
             newtutoria.setId(tutoria.getId());
             newtutoria.setDateEnd(tutoria.getDateEnd());
             newtutoria.setDescription(tutoria.getDescription());
-            newtutoria.setState(true);
+            newtutoria.setState(true);//Fixed
             newtutoria.setCategory(tutoria.getCategory().getName());
             newtutoria.setReason(tutoria.getReason());
             newtutoria.setDateStrat(tutoria.getDateStart());
