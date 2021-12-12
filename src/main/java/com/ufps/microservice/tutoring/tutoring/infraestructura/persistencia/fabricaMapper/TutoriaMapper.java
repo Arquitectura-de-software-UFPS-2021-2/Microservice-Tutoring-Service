@@ -17,4 +17,7 @@ public interface TutoriaMapper {
     @InheritInverseConfiguration
     Tutoring toTutoringEntity(Tutoria tutoria);
 
+    @InheritInverseConfiguration
+    List<Tutoring> toTutoringsEntity(List<Tutoria> tutorias);
+
 }

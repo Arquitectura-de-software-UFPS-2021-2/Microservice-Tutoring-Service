@@ -22,15 +22,15 @@ public class TutoriaRepositorio implements TutoriaRepositorioInterface {
     private TutoringCrudInterface tutoringCrudInterface;
 
     @Override
-    public Optional<Tutoria> findReason(String reason) {
+    public Optional<Tutoring> findReason(String reason) {
         Optional<Tutoring> tutoring = tutoringCrudInterface.findByReason(reason);
-        return tutoring.map(tutoring1 -> tutoriaMapper.toTutoriaDto(tutoring1));
+        return tutoring;
     }
 
     @Override
-    public List<Tutoria> findAll() {
+    public List<Tutoring> findAll() {
         List<Tutoring> tutorings = tutoringCrudInterface.findAll();
-        return tutoriaMapper.toTutoriaDtos(tutorings);
+        return tutorings;
     }
 
     @Override
@@ -40,9 +40,8 @@ public class TutoriaRepositorio implements TutoriaRepositorioInterface {
     }
 
     @Override
-    public void save(Tutoria tutoria) {
-        Tutoring tutoring = tutoriaMapper.toTutoringEntity(tutoria);
-        tutoringCrudInterface.save(tutoring);
+    public void save(Tutoring tutoria) {
+        tutoringCrudInterface.save(tutoria);
     }
 
     @Override

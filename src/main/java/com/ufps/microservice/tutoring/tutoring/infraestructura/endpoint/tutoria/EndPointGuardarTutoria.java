@@ -2,6 +2,7 @@ package com.ufps.microservice.tutoring.tutoring.infraestructura.endpoint.tutoria
 
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria.ManejadorGuardarTutorias;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoriaentrada;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import javassist.NotFoundException;
@@ -34,7 +35,7 @@ public class EndPointGuardarTutoria {
     @PostMapping(REST_SAVE)
     @ApiOperation("guarda una tutoria")
     @ApiResponse(code = 201, message = "CREATED")
-    public ResponseEntity<Tutoria> save(@RequestBody Tutoria tutoria) throws NotFoundException {
+    public ResponseEntity<Tutoria> save(@RequestBody Tutoriaentrada tutoria) throws NotFoundException {
         manejadorGuardarTutorias.guardar(tutoria);
         return new ResponseEntity<>(HttpStatus.OK);
     }
