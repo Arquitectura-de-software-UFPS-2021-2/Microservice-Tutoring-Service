@@ -17,10 +17,10 @@ public class PersonalizedNameCustomer {
     public static final String REST_CATEGORIA_BUSCAR="/busquedaNombre/{nombre}";
 
     public static final String REST_TEMA_ELIMINAR="/delete/{id}/{nombre}";
-    public static final String REST_TEMA_BUSCAR="busquedaNombre/{nombre}";
+    public static final String REST_TEMA_BUSCAR="/busquedaNombre/{nombre}";
 
     public static final String REST_TUTORIA_ELIMINAR="/delete/{id}/{nombre}";
-    public static final String REST_TUTORIA_BUSCAR="busquedaNombre/{nombre}";
+    public static final String REST_TUTORIA_BUSCAR="/busquedaNombre/{nombre}";
 
     public static final String REST_USUARIO_CAMBIAR_ROL="/{id}/rol/{rol}";
 

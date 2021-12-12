@@ -1,13 +1,11 @@
 package com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria;
 
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Categoria;
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tema;
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoriaentrada;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.*;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.UsuarioRepositorioInterface;
+import com.ufps.microservice.tutoring.tutoring.dominio.useCase.UsuarioUseCase;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Category;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Subject;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Tutoring;
@@ -27,7 +25,7 @@ public class ManejadorGuardarTutorias {
 
     private final TutoriaRepositorioInterface tutoriaRepositorioInterface;
 
-    private final UsuarioRepositorioInterface usuarioRepositorioInterface;
+    private final UsuarioUseCase usuarioUseCase;
 
     private final CategoriaRepositorioInterface categoriaRepositorioInterface;
 
@@ -39,31 +37,30 @@ public class ManejadorGuardarTutorias {
 
     private final TemaMapper temaMapper;
 
-    public Tutoria guardar(Tutoriaentrada tutoria) throws NotFoundException {
-        User usuario = usuarioMapper.toUserEntity(usuarioRepositorioInterface.findByCode(String.valueOf(tutoria.getUserTutor())));
-        User usuariocreador = usuarioMapper.toUserEntity(usuarioRepositorioInterface.findByCode(String.valueOf(tutoria.getUserCreator())));
+    public Tutoria guardar(Tutoriaentrada tutoria, String token) throws NotFoundException {
+        Usuario usuario = usuarioUseCase.findByCode(String.valueOf(tutoria.getUserTutor()), token);
+        Usuario usuariocreador = usuarioUseCase.findByCode(String.valueOf(tutoria.getUserCreator()), token);
         Optional<Categoria> categoria = categoriaRepositorioInterface.findId(tutoria.getId());
-        Category category = categoriaMapper.toCategoryEntity(categoria.get());
         List<Optional<Tema>> listtemas = new ArrayList<>();
         for(Integer tema : tutoria.getLissubjets())
         {
             listtemas.add(temaRepositorioInterface.findId(tema));
         }
-        List<Subject> listsubjects = new ArrayList<>();
+        List<Tema> listsubjects = new ArrayList<>();
         for(Optional<Tema> temas : listtemas)
         {
-            listsubjects.add(temaMapper.toSubjectEntity(temas.get()));
+            listsubjects.add(temas.get());
         }
-        Tutoring tutoriaGuardar = new Tutoring();
+        Tutoria tutoriaGuardar = new Tutoria();
         tutoriaGuardar.setId(tutoria.getId());
-        tutoriaGuardar.setCategory(category);
+        tutoriaGuardar.setCategory(categoria.get());
         tutoriaGuardar.setUserCreator(usuariocreador);
         tutoriaGuardar.setUserTutor(usuario);
         tutoriaGuardar.setSubjectList(listsubjects);
         tutoriaGuardar.setReason(tutoria.getReason());
         tutoriaGuardar.setState(true);
         tutoriaGuardar.setDescription(tutoria.getDescription());
-        tutoriaGuardar.setDateStart(tutoria.getDateStrat());
+        tutoriaGuardar.setDateStrat(tutoria.getDateStrat());
         tutoriaGuardar.setDateEnd(tutoria.getDateEnd());
         tutoriaRepositorioInterface.save(tutoriaGuardar);
         Optional<Tutoria> tutoriaBusqueda = tutoriaRepositorioInterface.findId(tutoriaGuardar.getId());

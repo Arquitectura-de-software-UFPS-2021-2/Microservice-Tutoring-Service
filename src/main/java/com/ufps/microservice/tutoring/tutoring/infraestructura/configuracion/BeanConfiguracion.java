@@ -106,12 +106,12 @@ public class BeanConfiguracion {
     public ManejadorGuardarTutorias manejadorGuardarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface,
                                                              CategoriaRepositorioInterface categoriaRepositorioInterface,
                                                              TemaRepositorioInterface temaRepositorioInterface,
-                                                             UsuarioRepositorioInterface usuarioRepositorioInterface,
+                                                             UsuarioUseCase usuarioUseCase,
                                                              UsuarioMapper usuarioMapper,
                                                              CategoriaMapper categoriaMapper,
                                                              TemaMapper temaMapper) {
         return new ManejadorGuardarTutorias(tutoriaRepositorioInterface,
-                                            usuarioRepositorioInterface,
+                                            usuarioUseCase,
                                             categoriaRepositorioInterface,
                                             temaRepositorioInterface,
                                             usuarioMapper,
@@ -131,6 +131,19 @@ public class BeanConfiguracion {
     @Bean
     public ManejadorGuardarRol manejadorGuardarRol(UsuarioUseCase usuarioUseCase) {
         return new ManejadorGuardarRol(usuarioUseCase);
+    }
+
+    @Bean
+    public ManejadorListaNotificaciones manejadorListaNotificaciones(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                                     UsuarioRepositorioInterface usuarioRepositorioInterface,
+                                                                    UsuarioMapper usuarioMapper,
+                                                                    CategoriaMapper categoriaMapper,
+                                                                    TemaMapper temaMapper){
+        return new ManejadorListaNotificaciones(tutoriaRepositorioInterface,
+                                                usuarioRepositorioInterface,
+                                                usuarioMapper,
+                                                categoriaMapper,
+                                                temaMapper);
     }
 
 }

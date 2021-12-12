@@ -1,13 +1,14 @@
 package com.ufps.microservice.tutoring.tutoring.dominio.modelo;
 
-import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
-public class Tutoria {
+@Setter
+@Getter
+public class TutoriaNotificacion {
 
     private Integer id;
     private String reason;
@@ -15,12 +16,13 @@ public class Tutoria {
     private boolean state;
     private LocalDateTime dateEnd;
     private LocalDateTime dateStrat;
-    private Usuario userCreator;
-    private Usuario userTutor;
-    private Categoria category;
-    private List<Tema> subjectList;
+    private int userCreator;
+    private int userTutor;
+    private String correotutor;
+    private String telefonotutor;
+    private List<UsuarioNotificacion>  usuarios;
 
-    public Tutoria() {
+    public TutoriaNotificacion() {
         actualizarReason(reason);
         actualizarDescription(description);
         actualizarState(state);
@@ -28,8 +30,6 @@ public class Tutoria {
         actualizarDateStart(dateStrat);
         actualizarUsuarioCreator(userCreator);
         actualizarUsuarioTutor(userTutor);
-        actualizarCategoria(category);
-        actualizarListSubject(subjectList);
     }
 
     public void actualizarReason(String reason) {
@@ -52,19 +52,12 @@ public class Tutoria {
         this.dateStrat = dateStart;
     }
 
-    public void actualizarUsuarioCreator(Usuario usuarioCreator) {
+    public void actualizarUsuarioCreator(int usuarioCreator) {
         this.userCreator = usuarioCreator;
     }
 
-    public void actualizarUsuarioTutor(Usuario usuarioTutor) {
+    public void actualizarUsuarioTutor(int usuarioTutor) {
         this.userTutor = usuarioTutor;
     }
 
-    public void actualizarCategoria(Categoria categoria) {
-        this.category = categoria;
-    }
-
-    public void actualizarListSubject(List<Tema> subjectList) {
-        this.subjectList = subjectList;
-    }
 }
