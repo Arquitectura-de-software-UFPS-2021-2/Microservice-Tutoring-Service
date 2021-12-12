@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import static com.ufps.microservice.tutoring.comun.infraestructura.utils.Persona
 @RequestMapping(REST_CONTROLADOR+REST_TUTORIA)
 @RequiredArgsConstructor
 @Validated
+@CrossOrigin(origins = "*")
 public class EndPointEditarTutoria {
 
     @Autowired
