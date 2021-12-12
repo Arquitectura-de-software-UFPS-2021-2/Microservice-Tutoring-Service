@@ -12,8 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TEMA;
+
 @RestController
-@RequestMapping("temas")
+@RequestMapping(REST_CONTROLADOR+REST_TEMA)
 @RequiredArgsConstructor
 @Validated
 @CrossOrigin(origins = "*")

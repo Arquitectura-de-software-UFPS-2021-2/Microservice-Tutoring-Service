@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_LIST;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TUTORIA;
+
 @RestController
-@RequestMapping("tutorias")
+@RequestMapping(REST_CONTROLADOR+REST_TUTORIA)
 @RequiredArgsConstructor
 @Validated
 public class EndPointListarTutoria {
@@ -27,7 +31,7 @@ public class EndPointListarTutoria {
     private ManejadorListarTutorias manejadorListarTutorias;
 
     //---GUARDAR---
-    @GetMapping("/list")
+    @GetMapping(REST_LIST)
     @ApiOperation("listar una tutoria")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),

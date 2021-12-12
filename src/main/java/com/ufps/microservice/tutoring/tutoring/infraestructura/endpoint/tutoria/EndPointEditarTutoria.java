@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TUTORIA;
+
 @RestController
-@RequestMapping("tutorias")
+@RequestMapping(REST_CONTROLADOR+REST_TUTORIA)
 @RequiredArgsConstructor
 @Validated
 public class EndPointEditarTutoria {

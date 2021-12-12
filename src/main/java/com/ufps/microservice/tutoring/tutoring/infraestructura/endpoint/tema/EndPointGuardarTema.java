@@ -12,8 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_SAVE;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TEMA;
+
 @RestController
-@RequestMapping("temas")
+@RequestMapping(REST_CONTROLADOR+REST_TEMA)
 @RequiredArgsConstructor
 @Validated
 @CrossOrigin(origins = "*")
@@ -23,7 +27,7 @@ public class EndPointGuardarTema {
     private ManejadorGuardarTemas manejadorGuardarTemas;
 
     //---GUARDAR---
-    @PostMapping("/save")
+    @PostMapping(REST_SAVE)
     @ApiOperation("guarda un tema")
     @ApiResponse(code = 201, message = "CREATED")
     public ResponseEntity<Tema> save(@RequestBody Tema tema) throws NotFoundException {

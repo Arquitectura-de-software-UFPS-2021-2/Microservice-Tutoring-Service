@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_SAVE;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TUTORIA;
+
 @RestController
-@RequestMapping("tutorias")
+@RequestMapping(REST_CONTROLADOR+REST_TUTORIA)
 @RequiredArgsConstructor
 @Validated
 public class EndPointGuardarTutoria {
@@ -25,7 +29,7 @@ public class EndPointGuardarTutoria {
     private ManejadorGuardarTutorias manejadorGuardarTutorias;
 
     //---GUARDAR---
-    @PostMapping("/save")
+    @PostMapping(REST_SAVE)
     @ApiOperation("guarda una tutoria")
     @ApiResponse(code = 201, message = "CREATED")
     public ResponseEntity<Tutoria> save(@RequestBody Tutoria tutoria) throws NotFoundException {

@@ -10,22 +10,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CATEGORIA;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_SAVE;
+
 @RestController
-@RequestMapping("categorias")
+@RequestMapping(REST_CONTROLADOR+REST_CATEGORIA)
 @RequiredArgsConstructor
 @Validated
+@CrossOrigin(origins = "*")
 public class EndPointGuardarCategoria {
 
     @Autowired
     private ManejadorGuardarCategorias manejadorGuardarCategorias;
 
     //---GUARDAR---
-    @PostMapping("/save")
+    @PostMapping(REST_SAVE)
     @ApiOperation("guarda una categoria")
     @ApiResponse(code = 201, message = "CREATED")
     public ResponseEntity<Categoria> save(@RequestBody Categoria categoria) throws NotFoundException {

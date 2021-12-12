@@ -12,8 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TEMA;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TEMA_ELIMINAR;
+
 @RestController
-@RequestMapping("temas")
+@RequestMapping(REST_CONTROLADOR+REST_TEMA)
 @RequiredArgsConstructor
 @Validated
 @CrossOrigin(origins = "*")
@@ -22,7 +26,7 @@ public class EndPointEliminarTema {
     private ManejadorEliminarTemas manejadorEliminarTemas;
 
     //---ELIMINAR---
-    @DeleteMapping("/tema/{id}/{nombre}")
+    @DeleteMapping(REST_TEMA_ELIMINAR)
     @ApiOperation("elimina un tema")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Tema> dalete(
