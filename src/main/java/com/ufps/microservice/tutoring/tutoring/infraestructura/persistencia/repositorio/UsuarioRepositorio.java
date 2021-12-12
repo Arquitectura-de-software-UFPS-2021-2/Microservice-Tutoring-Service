@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 
@@ -31,7 +32,7 @@ public class UsuarioRepositorio implements UsuarioRepositorioInterface {
         if (!usuarioResponseEntity.hasBody()) {
             throw new RuntimeException("No se encontro el usuario");
         }
-        Usuario usuario = new Usuario(); // fix
+        Usuario usuario = mapToUsuario(usuarioResponseEntity.getBody());
 
         User user = findUser(usuario.getCode().toString());
 
@@ -45,6 +46,22 @@ public class UsuarioRepositorio implements UsuarioRepositorioInterface {
         User user = findUser(usuario.getCode().toString());
         user.setRole(usuario.getRole());
         userCrudInterface.save(user);
+    }
+
+    private Usuario mapToUsuario(Map<String, Object> usuarioMap) {
+        Usuario usuario = new Usuario();
+        ArrayList<Object> message = (ArrayList<Object>) usuarioMap.get("message");
+        usuarioMap = (Map<String, Object>) message.get(0);
+        usuario.setCode(Integer.parseInt(usuarioMap.get("code").toString()));
+        usuario.setName(usuarioMap.get("name").toString());
+        usuario.setLastName(usuarioMap.get("last_name").toString());
+        usuario.setAddress(usuarioMap.get("address").toString());
+        usuario.setAge(usuarioMap.get("age").toString());
+        usuario.setPhone(usuarioMap.get("phone").toString());
+        usuario.setEmail(usuarioMap.get("email").toString());
+        usuario.setSemester(usuarioMap.get("semester").toString());
+        usuario.setUniversityCareer(usuarioMap.get("university_career").toString());
+        return usuario;
     }
 
     private User findUser(String code) {

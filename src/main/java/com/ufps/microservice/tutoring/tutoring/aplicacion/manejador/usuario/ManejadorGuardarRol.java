@@ -9,7 +9,7 @@ public class ManejadorGuardarRol {
 
     private final UsuarioUseCase usuarioUseCase;
 
-    public void ejecutar(String code, String token, String rol) {
+    public void ejecutar(String code, String rol, String token) {
         Usuario usuario = usuarioUseCase.findByCode(code, token);
         usuario.setRole(rol);
         usuarioUseCase.saveRole(usuario);
