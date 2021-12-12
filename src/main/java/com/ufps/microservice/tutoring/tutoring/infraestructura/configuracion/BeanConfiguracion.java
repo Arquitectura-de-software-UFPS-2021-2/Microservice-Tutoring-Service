@@ -89,7 +89,7 @@ public class BeanConfiguracion {
     }
 
     @Bean
-    public ManejadorEditarTutorias manejadorEditarCategorias(TutoriaRepositorioInterface tutoriaRepositorioInterface) {
+    public ManejadorEditarTutorias manejadorEditarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface) {
         return new ManejadorEditarTutorias(tutoriaRepositorioInterface);
     }
 
