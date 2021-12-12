@@ -10,22 +10,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TUTORIA;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TUTORIA_ELIMINAR;
+
 @RestController
-@RequestMapping("tutorias")
+@RequestMapping(REST_CONTROLADOR+REST_TUTORIA)
 @RequiredArgsConstructor
 @Validated
+@CrossOrigin(origins = "*")
 public class EndPointEliminarTutoria {
 
     @Autowired
     private ManejadorEliminarTutorias manejadorEliminarTutorias;
 
     //---ELIMINAR---
-    @DeleteMapping("/tutoria/{id}/{nombre}")
+    @DeleteMapping(REST_TUTORIA_ELIMINAR)
     @ApiOperation("elimina una tutoria")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Tutoria> dalete(

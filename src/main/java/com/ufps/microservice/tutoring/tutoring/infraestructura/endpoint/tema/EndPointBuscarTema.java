@@ -12,8 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TEMA;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_TEMA_BUSCAR;
+
 @RestController
-@RequestMapping("temas")
+@RequestMapping(REST_CONTROLADOR+REST_TEMA)
 @RequiredArgsConstructor
 @Validated
 @CrossOrigin(origins = "*")
@@ -23,7 +27,7 @@ public class EndPointBuscarTema {
     private final ManejadorBuscarNombreTemas manejadorBuscarNombreTemas;
 
     //---Buscar Tema---
-    @GetMapping("/busquedaNombre/{nombre}")
+    @GetMapping(REST_TEMA_BUSCAR)
     @ApiOperation("obtiene un tema por su nombre")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<Tema> getIdentification(

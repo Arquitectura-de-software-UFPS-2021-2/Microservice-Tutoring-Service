@@ -11,23 +11,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CATEGORIA;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_CONTROLADOR;
+import static com.ufps.microservice.tutoring.comun.infraestructura.utils.PersonalizedNameCustomer.REST_LIST;
+
 @RestController
-@RequestMapping("categorias")
+@RequestMapping(REST_CONTROLADOR+REST_CATEGORIA)
 @RequiredArgsConstructor
 @Validated
-public class EndPointListarcategoria {
+@CrossOrigin(origins = "*")
+public class EndPointListarCategoria {
 
     @Autowired
     private ManejadorListarCategorias manejadorListarCategorias;
 
-    //---GUARDAR---
-    @GetMapping("/list")
+    //---LISTAR---
+    @GetMapping(REST_LIST)
     @ApiOperation("listar una categoria")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
