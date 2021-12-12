@@ -17,4 +17,6 @@ public interface TemaMapper {
     @InheritInverseConfiguration
     Subject toSubjectEntity(Tema tema);
 
+    @InheritInverseConfiguration
+    List<Subject> toListSubject(List<Tema> tema);
 }
