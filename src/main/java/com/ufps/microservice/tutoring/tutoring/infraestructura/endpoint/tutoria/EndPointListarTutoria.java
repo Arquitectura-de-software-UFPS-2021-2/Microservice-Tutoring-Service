@@ -1,7 +1,6 @@
 package com.ufps.microservice.tutoring.tutoring.infraestructura.endpoint.tutoria;
 
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria.ManejadorListarTutorias;
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaSalida;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
