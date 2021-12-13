@@ -11,6 +11,7 @@ import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.Manejad
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorGuardarTemas;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tema.ManejadorListarTemas;
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria.*;
+import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.usuario.ManejadorGuardarRol;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
@@ -105,12 +106,12 @@ public class BeanConfiguracion {
     public ManejadorGuardarTutorias manejadorGuardarTutorias(TutoriaRepositorioInterface tutoriaRepositorioInterface,
                                                              CategoriaRepositorioInterface categoriaRepositorioInterface,
                                                              TemaRepositorioInterface temaRepositorioInterface,
-                                                             UsuarioRepositorioInterface usuarioRepositorioInterface,
+                                                             UsuarioUseCase usuarioUseCase,
                                                              UsuarioMapper usuarioMapper,
                                                              CategoriaMapper categoriaMapper,
                                                              TemaMapper temaMapper) {
         return new ManejadorGuardarTutorias(tutoriaRepositorioInterface,
-                                            usuarioRepositorioInterface,
+                                            usuarioUseCase,
                                             categoriaRepositorioInterface,
                                             temaRepositorioInterface,
                                             usuarioMapper,
@@ -125,6 +126,37 @@ public class BeanConfiguracion {
         return new ManejadorListarTutorias(tutoriaRepositorioInterface,
                                             categoriaMapper,
                                             temaMapper);
+    }
+
+    @Bean
+    public ManejadorGuardarRol manejadorGuardarRol(UsuarioUseCase usuarioUseCase) {
+        return new ManejadorGuardarRol(usuarioUseCase);
+    }
+
+    @Bean
+    public ManejadorListaNotificaciones manejadorListaNotificaciones(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                                     UsuarioUseCase usuarioUseCase,
+                                                                    UsuarioMapper usuarioMapper,
+                                                                    CategoriaMapper categoriaMapper,
+                                                                    TemaMapper temaMapper){
+        return new ManejadorListaNotificaciones(tutoriaRepositorioInterface,
+                                                usuarioUseCase,
+                                                usuarioMapper,
+                                                categoriaMapper,
+                                                temaMapper);
+    }
+
+    @Bean
+    public ManejadorListaNotificacion manejadorListaNotificacion(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                                     UsuarioUseCase usuarioUseCase,
+                                                                     UsuarioMapper usuarioMapper,
+                                                                     CategoriaMapper categoriaMapper,
+                                                                     TemaMapper temaMapper){
+        return new ManejadorListaNotificacion(tutoriaRepositorioInterface,
+                                                usuarioUseCase,
+                                                usuarioMapper,
+                                                categoriaMapper,
+                                                temaMapper);
     }
 
 }

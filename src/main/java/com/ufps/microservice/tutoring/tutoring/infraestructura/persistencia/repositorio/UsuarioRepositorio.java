@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 
@@ -26,22 +27,53 @@ public class UsuarioRepositorio implements UsuarioRepositorioInterface {
     private UsuarioClient usuarioClient;
 
     @Override
-    public Usuario findByCode(String code) {
-        ResponseEntity<Usuario> usuarioResponseEntity = usuarioClient.findByCodigo(Map.of("codigo", code));
+    public Usuario findByCode(String code, String token) {
+        ResponseEntity<Map<String, Object>> usuarioResponseEntity = usuarioClient.findByCodigo(Map.of("code", code, "api_token", token));
         if (!usuarioResponseEntity.hasBody()) {
             throw new RuntimeException("No se encontro el usuario");
         }
-        Usuario usuario = usuarioResponseEntity.getBody();
+        Usuario usuario = mapToUsuario(usuarioResponseEntity.getBody());
 
-        Optional<User> userOptional = userCrudInterface.findById(Integer.parseInt(code));
-        userOptional.ifPresent(user -> usuario.setRole(user.getRole()));
+        User user = findUser(usuario.getCode().toString());
+
+        usuario.setRole(user.getRole());
 
         return usuario;
     }
 
     @Override
     public void saveRole(Usuario usuario) {
-        User user = usuarioMapper.toUserEntity(usuario);
+        User user = findUser(usuario.getCode().toString());
+        user.setRole(usuario.getRole());
         userCrudInterface.save(user);
+    }
+
+    private Usuario mapToUsuario(Map<String, Object> usuarioMap) {
+        Usuario usuario = new Usuario();
+        ArrayList<Object> message = (ArrayList<Object>) usuarioMap.get("message");
+        usuarioMap = (Map<String, Object>) message.get(0);
+        usuario.setCode(Integer.parseInt(usuarioMap.get("code").toString()));
+        usuario.setName(usuarioMap.get("name").toString());
+        usuario.setLastName(usuarioMap.get("last_name").toString());
+        usuario.setAddress(usuarioMap.get("address").toString());
+        usuario.setAge(usuarioMap.get("age").toString());
+        usuario.setPhone(usuarioMap.get("phone").toString());
+        usuario.setEmail(usuarioMap.get("email").toString());
+        usuario.setSemester(usuarioMap.get("semester").toString());
+        usuario.setUniversityCareer(usuarioMap.get("university_career").toString());
+        return usuario;
+    }
+
+    private User findUser(String code) {
+        Optional<User> userOptional = userCrudInterface.findById(Integer.parseInt(code));
+        User user = User.builder().build();
+        if (userOptional.isEmpty()) {
+            user.setId(Integer.parseInt(code));
+            user.setRole("ROLE_USER");
+            userCrudInterface.save(user);
+        } else {
+            user = userOptional.get();
+        }
+        return user;
     }
 }

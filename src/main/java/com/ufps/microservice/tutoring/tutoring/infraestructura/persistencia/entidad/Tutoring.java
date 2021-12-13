@@ -60,7 +60,7 @@ public class Tutoring implements Serializable {
     )
     private List<User> userList;
 
-    @ManyToMany(mappedBy = "tutoringList")   //colt01 //no se mapea
+    @ManyToMany(mappedBy = "tutoringList", cascade = CascadeType.ALL, fetch = FetchType.EAGER)   //colt01 //no se mapea
     private List<Subject> subjectList;
 
 }

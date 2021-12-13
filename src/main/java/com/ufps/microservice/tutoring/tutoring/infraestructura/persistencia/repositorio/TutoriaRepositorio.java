@@ -40,8 +40,8 @@ public class TutoriaRepositorio implements TutoriaRepositorioInterface {
     }
 
     @Override
-    public void save(Tutoring tutoria) {
-        tutoringCrudInterface.save(tutoria);
+    public void save(Tutoria tutoria) {
+        tutoringCrudInterface.save(tutoriaMapper.toTutoringEntity(tutoria));
     }
 
     @Override

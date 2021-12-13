@@ -15,7 +15,7 @@ public interface TutoriaRepositorioInterface {
 
     Optional<Tutoria> findId(Integer id);
 
-    void save(Tutoring tutoria);
+    void save(Tutoria tutoria);
 
     void delete(Tutoria tutoria);
 

@@ -1,34 +1,35 @@
 package com.ufps.microservice.tutoring.tutoring.dominio.modelo;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
-public class Tutoria {
+@Setter
+@Getter
+public class TutoriaNotificacion {
 
     private Integer id;
     private String reason;
     private String description;
     private boolean state;
     private LocalDateTime dateEnd;
-    private LocalDateTime dateStart;
-    private Usuario userCreator;
-    private Usuario userTutor;
-    private Categoria category;
-    private List<Tema> subjectList;
+    private LocalDateTime dateStrat;
+    private int userCreator;
+    private int userTutor;
+    private String correotutor;
+    private String telefonotutor;
+    private List<UsuarioNotificacion>  usuarios;
 
-    public Tutoria() {
+    public TutoriaNotificacion() {
         actualizarReason(reason);
         actualizarDescription(description);
         actualizarState(state);
         actualizarDateEnd(dateEnd);
-        actualizarDateStart(dateStart);
+        actualizarDateStart(dateStrat);
         actualizarUsuarioCreator(userCreator);
         actualizarUsuarioTutor(userTutor);
-        actualizarCategoria(category);
-        actualizarListSubject(subjectList);
     }
 
     public void actualizarReason(String reason) {
@@ -48,22 +49,15 @@ public class Tutoria {
     }
 
     public void actualizarDateStart(LocalDateTime dateStart) {
-        this.dateStart = dateStart;
+        this.dateStrat = dateStart;
     }
 
-    public void actualizarUsuarioCreator(Usuario usuarioCreator) {
+    public void actualizarUsuarioCreator(int usuarioCreator) {
         this.userCreator = usuarioCreator;
     }
 
-    public void actualizarUsuarioTutor(Usuario usuarioTutor) {
+    public void actualizarUsuarioTutor(int usuarioTutor) {
         this.userTutor = usuarioTutor;
     }
 
-    public void actualizarCategoria(Categoria categoria) {
-        this.category = categoria;
-    }
-
-    public void actualizarListSubject(List<Tema> subjectList) {
-        this.subjectList = subjectList;
-    }
 }
