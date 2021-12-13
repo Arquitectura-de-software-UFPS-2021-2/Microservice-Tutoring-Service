@@ -14,6 +14,8 @@ public interface TutoriaMapper {
 
     UsuarioMapper usuario = Mappers.getMapper(UsuarioMapper.class);
 
+    @Mapping(source = "userCreator.id", target = "userCreator.code")
+    @Mapping(source = "userTutor.id", target = "userTutor.code")
     Tutoria toTutoriaDto(Tutoring tutoring);
 
     List<Tutoria> toTutoriaDtos(List<Tutoring> tutorings);

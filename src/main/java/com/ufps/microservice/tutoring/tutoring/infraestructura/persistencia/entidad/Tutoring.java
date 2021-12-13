@@ -63,4 +63,11 @@ public class Tutoring implements Serializable {
     @ManyToMany(mappedBy = "tutoringList", cascade = CascadeType.ALL, fetch = FetchType.EAGER)   //colt01 //no se mapea
     private List<Subject> subjectList;
 
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
 }

@@ -159,4 +159,9 @@ public class BeanConfiguracion {
                                                 temaMapper);
     }
 
+    @Bean
+    public ManejadorTerminarTutoria manejadorTerminarTutoria(TutoriaRepositorioInterface tutoriaRepositorioInterface){
+        return new ManejadorTerminarTutoria(tutoriaRepositorioInterface);
+    }
+
 }
