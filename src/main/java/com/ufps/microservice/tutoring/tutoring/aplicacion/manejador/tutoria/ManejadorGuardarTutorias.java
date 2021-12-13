@@ -58,11 +58,7 @@ public class ManejadorGuardarTutorias {
         tutoriaGuardar.setDateStart(tutoria.getDateStrat());
         tutoriaGuardar.setDateEnd(tutoria.getDateEnd());
         tutoriaRepositorioInterface.save(tutoriaGuardar);
-        Optional<Tutoria> tutoriaBusqueda = tutoriaRepositorioInterface.findId(tutoriaGuardar.getId());
-        if (tutoriaBusqueda.isEmpty()) {
-            throw new NotFoundException("No se encontro la tutoria");
-        }
-        return tutoriaBusqueda.get();
+        return tutoriaGuardar;
     }
 
 

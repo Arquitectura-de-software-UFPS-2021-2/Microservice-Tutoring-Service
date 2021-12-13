@@ -15,11 +15,7 @@ public class ManejadorGuardarCategorias {
     public Categoria guardar(Categoria categoria) throws NotFoundException {
         Categoria categoriaGuardar = categoria;
         categoriaRepositorioInterface.save(categoriaGuardar);
-        Optional<Categoria> categoriaBusqueda = categoriaRepositorioInterface.findId(categoriaGuardar.getId());
-        if (categoriaBusqueda.isEmpty()) {
-            throw new NotFoundException("No se encontro la categoria");
-        }
-        return categoriaBusqueda.get();
+        return categoriaGuardar;
     }
 
 

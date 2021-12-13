@@ -15,10 +15,6 @@ public class ManejadorGuardarTemas {
     public Tema guardar(Tema tema) throws NotFoundException {
         Tema temaGuardar = tema;
         temaRepositorioInterface.save(temaGuardar);
-        Optional<Tema> temaBusqueda = temaRepositorioInterface.findId(temaGuardar.getId());
-        if (temaBusqueda.isEmpty()) {
-            throw new NotFoundException("No se encontro la categoria");
-        }
-        return temaBusqueda.get();
+        return temaGuardar;
     }
 }
