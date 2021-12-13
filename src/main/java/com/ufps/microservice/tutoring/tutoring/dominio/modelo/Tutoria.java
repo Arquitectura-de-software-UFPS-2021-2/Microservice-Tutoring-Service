@@ -1,7 +1,6 @@
 package com.ufps.microservice.tutoring.tutoring.dominio.modelo;
 
 import lombok.Data;
-import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,7 +13,7 @@ public class Tutoria {
     private String description;
     private boolean state;
     private LocalDateTime dateEnd;
-    private LocalDateTime dateStrat;
+    private LocalDateTime dateStart;
     private Usuario userCreator;
     private Usuario userTutor;
     private Categoria category;
@@ -25,7 +24,7 @@ public class Tutoria {
         actualizarDescription(description);
         actualizarState(state);
         actualizarDateEnd(dateEnd);
-        actualizarDateStart(dateStrat);
+        actualizarDateStart(dateStart);
         actualizarUsuarioCreator(userCreator);
         actualizarUsuarioTutor(userTutor);
         actualizarCategoria(category);
@@ -49,7 +48,7 @@ public class Tutoria {
     }
 
     public void actualizarDateStart(LocalDateTime dateStart) {
-        this.dateStrat = dateStart;
+        this.dateStart = dateStart;
     }
 
     public void actualizarUsuarioCreator(Usuario usuarioCreator) {

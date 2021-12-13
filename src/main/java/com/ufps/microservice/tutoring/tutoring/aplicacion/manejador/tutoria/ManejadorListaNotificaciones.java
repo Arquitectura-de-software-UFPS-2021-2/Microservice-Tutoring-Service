@@ -3,6 +3,7 @@ package com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.*;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.UsuarioRepositorioInterface;
+import com.ufps.microservice.tutoring.tutoring.dominio.useCase.UsuarioUseCase;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Subject;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Tutoring;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.User;
@@ -20,7 +21,7 @@ public class ManejadorListaNotificaciones {
 
     private final TutoriaRepositorioInterface tutoriaRepositorioInterface;
 
-    private final UsuarioRepositorioInterface usuarioRepositorioInterface;
+    private final UsuarioUseCase usuarioUseCase;
 
     private final UsuarioMapper usuarioMapper;
 
@@ -45,7 +46,7 @@ public class ManejadorListaNotificaciones {
             newtutoria.setDateStrat(tutoria.getDateStart());
             newtutoria.setUserTutor(tutoria.getUserTutor().getId());
             newtutoria.setUserCreator(tutoria.getUserCreator().getId());
-            Usuario usuario = usuarioRepositorioInterface.findByCode(String.valueOf(tutoria.getUserTutor()), token);
+            Usuario usuario = usuarioUseCase.findByCode(String.valueOf(tutoria.getUserTutor().getId()), token);
             newtutoria.setCorreotutor(usuario.getEmail());
             newtutoria.setTelefonotutor(usuario.getPhone());
             listtutorias.add(newtutoria);

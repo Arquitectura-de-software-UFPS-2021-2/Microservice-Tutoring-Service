@@ -4,12 +4,7 @@ import com.ufps.microservice.tutoring.tutoring.dominio.modelo.*;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
-import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.UsuarioRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.useCase.UsuarioUseCase;
-import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Category;
-import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Subject;
-import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Tutoring;
-import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.User;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.CategoriaMapper;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.TemaMapper;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.UsuarioMapper;
@@ -40,7 +35,7 @@ public class ManejadorGuardarTutorias {
     public Tutoria guardar(Tutoriaentrada tutoria, String token) throws NotFoundException {
         Usuario usuario = usuarioUseCase.findByCode(String.valueOf(tutoria.getUserTutor()), token);
         Usuario usuariocreador = usuarioUseCase.findByCode(String.valueOf(tutoria.getUserCreator()), token);
-        Optional<Categoria> categoria = categoriaRepositorioInterface.findId(tutoria.getId());
+        Optional<Categoria> categoria = categoriaRepositorioInterface.findId(tutoria.getIdcategory());
         List<Optional<Tema>> listtemas = new ArrayList<>();
         for(Integer tema : tutoria.getLissubjets())
         {
@@ -60,7 +55,7 @@ public class ManejadorGuardarTutorias {
         tutoriaGuardar.setReason(tutoria.getReason());
         tutoriaGuardar.setState(true);
         tutoriaGuardar.setDescription(tutoria.getDescription());
-        tutoriaGuardar.setDateStrat(tutoria.getDateStrat());
+        tutoriaGuardar.setDateStart(tutoria.getDateStrat());
         tutoriaGuardar.setDateEnd(tutoria.getDateEnd());
         tutoriaRepositorioInterface.save(tutoriaGuardar);
         Optional<Tutoria> tutoriaBusqueda = tutoriaRepositorioInterface.findId(tutoriaGuardar.getId());

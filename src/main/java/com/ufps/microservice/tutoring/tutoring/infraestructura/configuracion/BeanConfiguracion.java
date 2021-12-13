@@ -135,12 +135,25 @@ public class BeanConfiguracion {
 
     @Bean
     public ManejadorListaNotificaciones manejadorListaNotificaciones(TutoriaRepositorioInterface tutoriaRepositorioInterface,
-                                                                     UsuarioRepositorioInterface usuarioRepositorioInterface,
+                                                                     UsuarioUseCase usuarioUseCase,
                                                                     UsuarioMapper usuarioMapper,
                                                                     CategoriaMapper categoriaMapper,
                                                                     TemaMapper temaMapper){
         return new ManejadorListaNotificaciones(tutoriaRepositorioInterface,
-                                                usuarioRepositorioInterface,
+                                                usuarioUseCase,
+                                                usuarioMapper,
+                                                categoriaMapper,
+                                                temaMapper);
+    }
+
+    @Bean
+    public ManejadorListaNotificacion manejadorListaNotificacion(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                                     UsuarioUseCase usuarioUseCase,
+                                                                     UsuarioMapper usuarioMapper,
+                                                                     CategoriaMapper categoriaMapper,
+                                                                     TemaMapper temaMapper){
+        return new ManejadorListaNotificacion(tutoriaRepositorioInterface,
+                                                usuarioUseCase,
                                                 usuarioMapper,
                                                 categoriaMapper,
                                                 temaMapper);

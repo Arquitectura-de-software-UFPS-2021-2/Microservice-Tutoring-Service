@@ -1,9 +1,7 @@
 package com.ufps.microservice.tutoring.tutoring.infraestructura.endpoint.tutoria;
 
 import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria.ManejadorListaNotificaciones;
-import com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria.ManejadorListarTutorias;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaNotificacion;
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaSalida;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -24,13 +22,13 @@ import static com.ufps.microservice.tutoring.comun.infraestructura.utils.Persona
 @RequiredArgsConstructor
 @Validated
 @CrossOrigin(origins = "*")
-public class EndPointListaNotificacion {
+public class EndPointListaNotificaciones {
 
     @Autowired
     private ManejadorListaNotificaciones manejadorListaNotificaciones;
 
     //---GUARDAR---
-    @GetMapping("/listarnotf")
+    @GetMapping(REST_TUTORIA_LISTAR_NOTIFICACIONES)
     @ApiOperation("listar una tutoria")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
