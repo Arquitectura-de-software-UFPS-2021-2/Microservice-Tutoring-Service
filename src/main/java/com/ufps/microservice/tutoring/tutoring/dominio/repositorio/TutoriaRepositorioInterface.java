@@ -2,6 +2,7 @@ package com.ufps.microservice.tutoring.tutoring.dominio.repositorio;
 
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Categoria;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaSalida;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Tutoring;
 
 import java.util.List;
@@ -20,5 +21,9 @@ public interface TutoriaRepositorioInterface {
     void delete(Tutoria tutoria);
 
     Tutoring renEntity(String name);
+
+    List<Tutoring> findTutoriasTrue();
+
+    List<Tutoring> findTutoriasFalse();
 
 }

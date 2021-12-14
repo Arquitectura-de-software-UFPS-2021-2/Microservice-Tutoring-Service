@@ -21,9 +21,11 @@ public class PersonalizedNameCustomer {
 
     public static final String REST_TUTORIA_ELIMINAR="/delete/{id}/{nombre}";
     public static final String REST_TUTORIA_BUSCAR="/busquedaNombre/{nombre}";
-    public static final String REST_TUTORIA_TERMINAR="/terminartutoria/{id}";
+    public static final String REST_TUTORIA_TERMINAR="/terminartutoria/{id }";
     public static final String REST_TUTORIA_LISTAR_NOTIFICACIONES="/notificacionesall";
     public static final String REST_TUTORIA_LISTAR_NOTIFICACION="/notificacion/{nombre}";
+    public static final String REST_TUTORIA_LISTAR_TRUE="/activas";
+    public static final String REST_TUTORIA_LISTAR_FALSE="/terminadas";
 
     public static final String REST_USUARIO_CAMBIAR_ROL="/{id}/rol/{rol}";
 

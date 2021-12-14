@@ -1,6 +1,7 @@
 package com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.repositorio;
 
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaSalida;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.crud.TutoringCrudInterface;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Category;
@@ -53,5 +54,17 @@ public class TutoriaRepositorio implements TutoriaRepositorioInterface {
     @Override
     public Tutoring renEntity(String name) {
         return null;
+    }
+
+    @Override
+    public List<Tutoring> findTutoriasTrue()
+    {
+        return tutoringCrudInterface.findByStatetrue();
+    }
+
+    @Override
+    public List<Tutoring> findTutoriasFalse()
+    {
+        return tutoringCrudInterface.findByStatefalse();
     }
 }
