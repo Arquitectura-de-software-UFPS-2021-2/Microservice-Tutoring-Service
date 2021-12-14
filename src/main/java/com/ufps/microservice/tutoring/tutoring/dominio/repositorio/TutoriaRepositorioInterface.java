@@ -18,6 +18,8 @@ public interface TutoriaRepositorioInterface {
 
     void save(Tutoria tutoria);
 
+    void saveinscripcion(Tutoria tutoria);
+
     void delete(Tutoria tutoria);
 
     Tutoring renEntity(String name);

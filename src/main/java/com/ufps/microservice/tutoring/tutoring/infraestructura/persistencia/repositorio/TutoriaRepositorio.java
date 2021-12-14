@@ -2,14 +2,17 @@ package com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.rep
 
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaSalida;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Usuario;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.crud.TutoringCrudInterface;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Category;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Tutoring;
+import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.User;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.TutoriaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +46,23 @@ public class TutoriaRepositorio implements TutoriaRepositorioInterface {
     @Override
     public void save(Tutoria tutoria) {
         tutoringCrudInterface.save(tutoriaMapper.toTutoringEntity(tutoria));
+
+    }
+
+    @Override
+    public void saveinscripcion(Tutoria tutoria) {
+        Tutoring guardartutoria = tutoriaMapper.toTutoringEntity(tutoria);
+        List<User> usuarios = new ArrayList<>();
+
+        for(Usuario user: tutoria.getUserList())
+        {
+            User newuser = new User();
+            newuser.setId(user.getCode());
+            newuser.setRole(user.getRole());
+            usuarios.add(newuser);
+        }
+        guardartutoria.setUserList(usuarios);
+        tutoringCrudInterface.save(guardartutoria);
     }
 
     @Override

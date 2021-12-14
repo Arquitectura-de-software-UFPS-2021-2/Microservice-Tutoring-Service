@@ -182,4 +182,11 @@ public class BeanConfiguracion {
         return new ManejadorTerminarTutoria(tutoriaRepositorioInterface);
     }
 
+    @Bean
+    public ManejadorInscribirseTutoria manejadorInscribirseTutoria(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                                UsuarioUseCase usuarioUseCase){
+        return new ManejadorInscribirseTutoria(tutoriaRepositorioInterface,
+                                                usuarioUseCase);
+    }
+
 }

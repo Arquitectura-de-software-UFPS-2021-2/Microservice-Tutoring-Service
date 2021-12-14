@@ -1,7 +1,9 @@
 package com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper;
 
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Usuario;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Tutoring;
+import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.User;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -23,6 +25,7 @@ public interface TutoriaMapper {
     @InheritInverseConfiguration
     @Mapping(source = "userCreator.code", target = "userCreator.id")
     @Mapping(source = "userTutor.code", target = "userTutor.id")
+    @Mapping(ignore = true, target = "userList")
     Tutoring toTutoringEntity(Tutoria tutoria);
 
     @InheritInverseConfiguration
