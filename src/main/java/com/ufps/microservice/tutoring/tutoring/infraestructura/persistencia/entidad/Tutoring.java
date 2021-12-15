@@ -52,7 +52,7 @@ public class Tutoring implements Serializable {
     @JoinColumn(name = "id_category", nullable = false)
     private Category category;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "tutoring_received",
             joinColumns = {@JoinColumn(name = "id_tutoring")},
@@ -60,7 +60,18 @@ public class Tutoring implements Serializable {
     )
     private List<User> userList;
 
-    @ManyToMany(mappedBy = "tutoringList", cascade = CascadeType.ALL, fetch = FetchType.EAGER)   //colt01 //no se mapea
+    @ManyToMany
+    @JoinTable(
+            name = "tutoring_subject",
+            joinColumns = @JoinColumn(name = "id_tutoring"),
+            inverseJoinColumns = @JoinColumn(name = "id_subject"))
     private List<Subject> subjectList;
 
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
 }

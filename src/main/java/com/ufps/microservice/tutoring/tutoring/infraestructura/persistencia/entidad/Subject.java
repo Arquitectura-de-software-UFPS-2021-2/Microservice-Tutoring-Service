@@ -35,12 +35,7 @@ public class Subject implements Serializable {
     )
     private List<User> userList;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tutoring_subject",
-            joinColumns = @JoinColumn(name = "id_subject"),
-            inverseJoinColumns = @JoinColumn(name = "id_tutoring")
-    )
+    @ManyToMany(mappedBy = "subjectList")
     private List<Tutoring> tutoringList;
 
 }

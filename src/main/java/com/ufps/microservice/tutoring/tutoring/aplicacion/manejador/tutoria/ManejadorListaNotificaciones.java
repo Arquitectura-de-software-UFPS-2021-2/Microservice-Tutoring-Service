@@ -41,7 +41,7 @@ public class ManejadorListaNotificaciones {
             newtutoria.setId(tutoria.getId());
             newtutoria.setDateEnd(tutoria.getDateEnd());
             newtutoria.setDescription(tutoria.getDescription());
-            newtutoria.setState(true);//Fixed
+            newtutoria.setState(tutoria.isState());//Fixed
             newtutoria.setReason(tutoria.getReason());
             newtutoria.setDateStrat(tutoria.getDateStart());
             newtutoria.setUserTutor(tutoria.getUserTutor().getId());

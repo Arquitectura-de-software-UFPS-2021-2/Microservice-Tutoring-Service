@@ -129,6 +129,24 @@ public class BeanConfiguracion {
     }
 
     @Bean
+    public ManejadorListarTutoriasTrue manejadorListarTutoriasTrue(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                           CategoriaMapper categoriaMapper,
+                                                           TemaMapper temaMapper){
+        return new ManejadorListarTutoriasTrue(tutoriaRepositorioInterface,
+                                                categoriaMapper,
+                                                temaMapper);
+    }
+
+    @Bean
+    public ManejadorListarTutoriasFalse manejadorListarTutoriasFalse(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                                   CategoriaMapper categoriaMapper,
+                                                                   TemaMapper temaMapper){
+        return new ManejadorListarTutoriasFalse(tutoriaRepositorioInterface,
+                                                categoriaMapper,
+                                                temaMapper);
+    }
+
+    @Bean
     public ManejadorGuardarRol manejadorGuardarRol(UsuarioUseCase usuarioUseCase) {
         return new ManejadorGuardarRol(usuarioUseCase);
     }
@@ -157,6 +175,18 @@ public class BeanConfiguracion {
                                                 usuarioMapper,
                                                 categoriaMapper,
                                                 temaMapper);
+    }
+
+    @Bean
+    public ManejadorTerminarTutoria manejadorTerminarTutoria(TutoriaRepositorioInterface tutoriaRepositorioInterface){
+        return new ManejadorTerminarTutoria(tutoriaRepositorioInterface);
+    }
+
+    @Bean
+    public ManejadorInscribirseTutoria manejadorInscribirseTutoria(TutoriaRepositorioInterface tutoriaRepositorioInterface,
+                                                                UsuarioUseCase usuarioUseCase){
+        return new ManejadorInscribirseTutoria(tutoriaRepositorioInterface,
+                                                usuarioUseCase);
     }
 
 }

@@ -35,8 +35,8 @@ public class EndPointGuardarCategoria {
     @ApiOperation("guarda una categoria")
     @ApiResponse(code = 201, message = "CREATED")
     public ResponseEntity<Categoria> save(@RequestBody Categoria categoria) throws NotFoundException {
-        manejadorGuardarCategorias.guardar(categoria);
-        return new ResponseEntity<>(HttpStatus.OK);
+        Categoria categoria1 = manejadorGuardarCategorias.guardar(categoria);
+        return new ResponseEntity<>(categoria1, HttpStatus.OK);
     }
 
 }

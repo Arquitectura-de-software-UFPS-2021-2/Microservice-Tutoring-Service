@@ -1,23 +1,19 @@
 package com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria;
 
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tema;
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
 import com.ufps.microservice.tutoring.tutoring.dominio.modelo.TutoriaSalida;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Subject;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.entidad.Tutoring;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.CategoriaMapper;
 import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.TemaMapper;
-import com.ufps.microservice.tutoring.tutoring.infraestructura.persistencia.fabricaMapper.UsuarioMapper;
 import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
-public class ManejadorListarTutorias {
+public class ManejadorListarTutoriasFalse {
 
     private final TutoriaRepositorioInterface tutoriaRepositorioInterface;
 
@@ -26,7 +22,7 @@ public class ManejadorListarTutorias {
     private final TemaMapper temaMapper;
 
     public List<TutoriaSalida> list() throws NotFoundException {
-        List<Tutoring> tutoriaBusqueda = tutoriaRepositorioInterface.findAll();
+        List<Tutoring> tutoriaBusqueda = tutoriaRepositorioInterface.findTutoriasFalse();
         if (tutoriaBusqueda.isEmpty()){
             throw new NotFoundException("No se encontro la tutoria");
         }
@@ -53,5 +49,4 @@ public class ManejadorListarTutorias {
         }
         return listtutorias;
     }
-
 }

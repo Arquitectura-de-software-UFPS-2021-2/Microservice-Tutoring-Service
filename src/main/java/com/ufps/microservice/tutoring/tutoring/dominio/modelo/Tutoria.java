@@ -18,6 +18,7 @@ public class Tutoria {
     private Usuario userTutor;
     private Categoria category;
     private List<Tema> subjectList;
+    private List<Usuario> userList;
 
     public Tutoria() {
         actualizarReason(reason);
@@ -29,6 +30,7 @@ public class Tutoria {
         actualizarUsuarioTutor(userTutor);
         actualizarCategoria(category);
         actualizarListSubject(subjectList);
+        actualizarListUser(userList);
     }
 
     public void actualizarReason(String reason) {
@@ -65,5 +67,9 @@ public class Tutoria {
 
     public void actualizarListSubject(List<Tema> subjectList) {
         this.subjectList = subjectList;
+    }
+
+    public void actualizarListUser(List<Usuario> userList) {
+        this.userList = userList;
     }
 }
