@@ -1,6 +1,10 @@
 package com.ufps.microservice.tutoring.tutoring.aplicacion.manejador.tutoria;
 
-import com.ufps.microservice.tutoring.tutoring.dominio.modelo.*;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Categoria;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tema;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoria;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Tutoriaentrada;
+import com.ufps.microservice.tutoring.tutoring.dominio.modelo.Usuario;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.CategoriaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TemaRepositorioInterface;
 import com.ufps.microservice.tutoring.tutoring.dominio.repositorio.TutoriaRepositorioInterface;
