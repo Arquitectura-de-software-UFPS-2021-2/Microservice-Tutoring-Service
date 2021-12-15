@@ -4,6 +4,14 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'war'
+
+
+war {
+    archiveName 'ProjectName.war'
+    from 'SubprojectName/build/dist'
+}
+
 group = 'com.ufps'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -39,6 +47,9 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     implementation 'org.mockito:mockito-core:3.11.2'
     implementation 'com.github.javafaker:javafaker:1.0.2'
+
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+
 }
 
 dependencyManagement {
