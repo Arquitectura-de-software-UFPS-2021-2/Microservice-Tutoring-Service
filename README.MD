@@ -3,7 +3,7 @@
 API REST en Spring del microservicio de tutorias.
 
 ## Como utilizar
-"Los endpoints se pueden ver claramente con el **SWAGGER** en la direccion http://localhost:8080/swagger-ui.html#/"
+"Los endpoints se pueden ver claramente con el **SWAGGER** en la direccion http://34.199.225.252:8080/swagger-ui.html#/"
 
 La API se consume por varios EndPoints:
 
@@ -20,7 +20,7 @@ name	string
 
 **Buscar tema**
 
-POST: http://localhost:8080/tutoriaServicio/tema/busquedaNombre/{nombre}
+POST: http://34.199.225.252:8080/tutoriaServicio/tema/busquedaNombre/{nombre}
 
 ```json
 {
@@ -30,7 +30,7 @@ POST: http://localhost:8080/tutoriaServicio/tema/busquedaNombre/{nombre}
 
 **Guardar tema**
 
-POST: http://localhost:8080/tutoriaServicio/tema/save
+POST: http://34.199.225.252:8080/tutoriaServicio/tema/save
 
 ```json
 {
@@ -41,7 +41,7 @@ POST: http://localhost:8080/tutoriaServicio/tema/save
 
 **Editar tema**
 
-PUT: http://localhost:8080/tutoriaServicio/tema
+PUT: http://34.199.225.252:8080/tutoriaServicio/tema
 
 ```json
 {
@@ -53,7 +53,7 @@ PUT: http://localhost:8080/tutoriaServicio/tema
 
 **Eliminar tema**
 
-DELETE: http://localhost:8080/tutoriaServicio/tema/delete/{id}/{nombre}
+DELETE: http://34.199.225.252:8080/tutoriaServicio/tema/delete/{id}/{nombre}
 
 ```json
 {
@@ -64,13 +64,13 @@ DELETE: http://localhost:8080/tutoriaServicio/tema/delete/{id}/{nombre}
 ```
 **Listar todos los temas**
 
-GET: http://localhost:8080/tutoriaServicio/tema/list
+GET: http://34.199.225.252:8080/tutoriaServicio/tema/list
 
 No parameters
 
 **Buscar tutoria por nombre**
 
-GET: http://localhost:8080/tutoriaServicio/tutoria/busquedaNombre/{nombre}
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/busquedaNombre/{nombre}
 
 ```json
 {
@@ -93,7 +93,7 @@ Categoria{
 
 **Guardar Categoria**
 
-POST: http://localhost:8080/tutoriaServicio/categoria/save
+POST: http://34.199.225.252:8080/tutoriaServicio/categoria/save
 
 ```json
 {
@@ -105,7 +105,7 @@ POST: http://localhost:8080/tutoriaServicio/categoria/save
 
 **Editar Categoria**
 
-PUT: http://localhost:8080/tutoriaServicio/categoria
+PUT: http://34.199.225.252:8080/tutoriaServicio/categoria
 
 ```json
 {
@@ -117,7 +117,7 @@ PUT: http://localhost:8080/tutoriaServicio/categoria
 
 **Eliminar Categoria**
 
-DELETE: http://localhost:8080/tutoriaServicio/categoria/delete/{id}/{nombre}
+DELETE: http://34.199.225.252:8080/tutoriaServicio/categoria/delete/{id}/{nombre}
 
 ```json
 {
@@ -128,13 +128,13 @@ DELETE: http://localhost:8080/tutoriaServicio/categoria/delete/{id}/{nombre}
 
 **Listar todos los Categoria**
 
-GET: http://localhost:8080/tutoriaServicio/categoria/list
+GET: http://34.199.225.252:8080/tutoriaServicio/categoria/list
 
 No parameters
 
 **Buscar Categoria por nombre**
 
-GET: http://localhost:8080/tutoriaServicio/categoria/busquedaNombre/{nombre}
+GET: http://34.199.225.252:8080/tutoriaServicio/categoria/busquedaNombre/{nombre}
 
 ```json
 {
@@ -194,7 +194,7 @@ Tutoria{
 
 **Guardar Tutoria**
 
-POST: http://localhost:8080/tutoriaServicio/tutoria/save
+POST: http://34.199.225.252:8080/tutoriaServicio/tutoria/save
 
 Header
 ```header
@@ -218,7 +218,7 @@ Header
 ```
 **Inscribirse a Tutoria**
 
-GET: http://localhost:8080/tutoriaServicio/tutoria/inscribirse/{id}/{idusuario}
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/inscribirse/{id}/{idusuario}
 
 id -> id de la tutoria,
 
@@ -235,7 +235,7 @@ Header
 
 **Editar Tutoria**
 
-PUT: http://localhost:8080/tutoriaServicio/tutoria
+PUT: http://34.199.225.252:8080/tutoriaServicio/tutoria
 
 ```json
 {
@@ -304,7 +304,7 @@ PUT: http://localhost:8080/tutoriaServicio/tutoria
 
 **Eliminar Tutoria**
 
-DELETE: http://localhost:8080/tutoriaServicio/tutoria/delete/{id}/{nombre}
+DELETE: http://34.199.225.252:8080/tutoriaServicio/tutoria/delete/{id}/{nombre}
 
 ```json
 Sin datos
@@ -312,25 +312,25 @@ Sin datos
 ```
 **Listar todos los Tutoria**
 
-GET: http://localhost:8080/tutoriaServicio/tutoria/list
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/list
 
 No parameters
 
 **Listar Tutorias false**
 
-GET: /tutoriaServicio/tutoria/list/terminadas
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/list/terminadas
 
 No parameters
 
 **Listar Tutorias true**
 
-GET: http://localhost:8080/tutoriaServicio/tutoria/list/activas
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/list/activas
 
 No parameters
 
 **Buscar Tutoria por nombre**
 
-GET: http://localhost:8080/tutoriaServicio/tutoria/busquedaNombre/{nombre}
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/busquedaNombre/{nombre}
 
 ```json
 {
@@ -340,7 +340,7 @@ GET: http://localhost:8080/tutoriaServicio/tutoria/busquedaNombre/{nombre}
 
 **Terminar Tutoria**
 
-GET: http://localhost:8080/tutoriaServicio/tutoria/delete/{id}/{nombre}
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/delete/{id}/{nombre}
 
 ```json
 {
@@ -352,7 +352,7 @@ GET: http://localhost:8080/tutoriaServicio/tutoria/delete/{id}/{nombre}
 
 **Guardar Rol**
 
-GET: http://localhost:8080/usuario/{id}/rol/{rol}
+GET: http://34.199.225.252:8080/usuario/{id}/rol/{rol}
 
 Header
 
@@ -368,7 +368,7 @@ Header
 
 **Listar Notificaciones**
 
-GET: http://localhost:8080/tutoriaServicio/tutoria/notificacionesall
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/notificacionesall
 
 Header
 
@@ -382,7 +382,7 @@ Header
 
 **Listar Notificacion**
 
-GET: http://localhost:8080/tutoriaServicio/tutoria/notificacion/{nombre}
+GET: http://34.199.225.252:8080/tutoriaServicio/tutoria/notificacion/{nombre}
 
 Header
 
